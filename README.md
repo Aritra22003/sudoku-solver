@@ -1,92 +1,127 @@
-# N-Puzzle Solver
+# 🧩 Sudoku Solver Web App
 
-An interactive N-Puzzle solver using A* algorithm with React frontend and FastAPI backend.
+A full-stack web application to solve 9x9 Sudoku puzzles using a fast backtracking algorithm. Users can input custom puzzles and visualize the solving process in real-time.
 
-## Features
+## 🚀 Tech Stack
 
-- Interactive N-Puzzle board
-- A* algorithm implementation for optimal solutions
-- Step-by-step solution visualization
-- Beautiful UI with animations
-- Backend performance optimization with FastAPI
+- **Frontend:** React, Tailwind CSS
+- **Backend:** FastAPI
+- **Communication:** REST API (JSON)
 
-## Setup Instructions
+---
 
-### Prerequisites
+## 📷 Demo
 
-- Python 3.8+
-- Node.js 14+
-- npm or yarn
+<!-- Add a screenshot here -->
+![Sudoku Solver UI Screenshot](demo/sudoku-ui.png)
 
-### Backend Setup
+---
 
-1. Navigate to the backend directory:
-```bash
-cd backend
-```
+## ⚙️ Features
 
-2. Create a virtual environment:
-```bash
+- Interactive Sudoku board
+- Solve puzzle via FastAPI backend
+- Step-by-step animation of solving process
+- Input validation and reset functionality
+
+---
+
+## 🧠 Algorithm
+
+The backend uses a classic **recursive backtracking** algorithm:
+- Tries filling empty cells with valid digits
+- Checks constraints (row, column, 3×3 grid)
+- Backtracks on conflicts until a solution is found
+
+---
+
+## 🛠️ Getting Started
+
+### Backend
+
+1. Navigate to backend:
+   ```bash
+   cd backend
+Create and activate a virtual environment:
+
+bash
+Copy
+Edit
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
+source venv/bin/activate  # or venv\Scripts\activate on Windows
+Install dependencies:
 
-3. Install dependencies:
-```bash
+bash
+Copy
+Edit
 pip install -r requirements.txt
-```
+Run the server:
 
-4. Start the FastAPI server:
-```bash
-uvicorn main:app --reload --port 8000
-```
+bash
+Copy
+Edit
+uvicorn main:app --reload
+Visit http://127.0.0.1:8000/docs for Swagger UI.
 
-### Frontend Setup
+Frontend
+Navigate to frontend:
 
-1. Navigate to the frontend directory:
-```bash
+bash
+Copy
+Edit
 cd frontend
-```
+Install dependencies:
 
-2. Install dependencies:
-```bash
+bash
+Copy
+Edit
 npm install
-```
+Start the React app:
 
-3. Start the development server:
-```bash
+bash
+Copy
+Edit
 npm start
-```
+The app will run on http://localhost:3000.
 
-The application will be available at http://localhost:3000
+🔗 API Overview
+POST /solve
 
-## Deployment
+Request Body:
 
-### Backend Deployment (Azure)
+json
+Copy
+Edit
+{
+  "board": [[...], [...], ...]  // 9x9 grid with 0 as empty
+}
+Response:
 
-1. Create an Azure App Service
-2. Configure Python version
-3. Set up deployment from GitHub
-4. Add environment variables if needed
+json
+Copy
+Edit
+{
+  "solution": [[...], [...], ...]
+}
+📦 Deployment
+Backend: Deploy to Render/Heroku using Uvicorn
 
-### Frontend Deployment (Netlify)
+Frontend: Deploy to Netlify or Vercel
 
-1. Push code to GitHub
-2. Connect repository to Netlify
-3. Configure build settings:
-   - Build command: `npm run build`
-   - Publish directory: `build`
-4. Deploy
+Add proxy in frontend package.json:
 
-## Algorithm Details
+json
+Copy
+Edit
+"proxy": "http://localhost:8000"
+🧪 To-Do
+ Add puzzle generator
 
-The A* algorithm implementation uses the Manhattan distance heuristic to find the optimal solution path. The solver includes:
+ Difficulty selector
 
-- Efficient priority queue implementation
-- Solvability check before processing
-- Solution path reconstruction
-- Performance optimizations
+ OCR input from image
 
-## License
+ Solver step debugger
 
-MIT
+📄 License
+MIT License
