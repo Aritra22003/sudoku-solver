@@ -13,7 +13,7 @@ A full-stack web application to solve 9x9 Sudoku puzzles using a fast backtracki
 ## 📷 Demo
 
 <!-- Add a screenshot here -->
-![Sudoku Solver UI Screenshot](demo/sudoku-ui.png)
+![Sudoku Solver UI Screenshot](https://github.com/Aritra22003/sudoku-solver/blob/c052be2eee711addd16c10cfb09e79d4c5be00a4/sudoku-ui.png)
 
 ---
 
